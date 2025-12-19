@@ -1,8 +1,51 @@
-<img src="images/logo.png" style="zoom: 67%;" />
+<div align="center">
+  <img src="images/logo.png" style="zoom: 67%;" />
 
-# SeedBench: A Multi-task Benchmark for Evaluating Large Language Models in Seed Science
+  # SeedBench: A Multi-task Benchmark for Evaluating Large Language Models in Seed Science
+
+  <p align="center">
+    <a href="./README.md"><b>English</b></a> |
+    <a href="./README_zh.md"><b>简体中文</b></a>
+  </p>
+</div>
 
 **SeedBench** is the first multi-task benchmark designed to evaluate large language models (LLMs) in seed science, focusing on seed breeding. This repository includes the dataset, evaluation code, and documentation to support research in this domain. [Here](https://github.com/open-sciencelab/SeedBench/issues/11) is the usage.
+
+---
+
+## 🚀 How to Use SeedBench with OpenCompass
+
+To evaluate models on SeedBench, we utilize **OpenCompass**. Follow the steps below to set up the environment and run the evaluation.
+
+### 1. Installation
+
+Clone the OpenCompass repository and install the necessary dependencies (including `modelscope` for dataset downloading).
+
+```bash
+git clone https://github.com/open-compass/opencompass opencompass
+cd opencompass
+pip install -e .
+pip install modelscope
+
+```
+
+### 2. Evaluation
+
+Set the dataset source environment variable and execute the evaluation script. The example below uses `Qwen/Qwen2.5-0.5B-Instruct`.
+
+```bash
+DATASET_SOURCE=ModelScope python run.py --hf-type chat \
+    --hf-path Qwen/Qwen2.5-0.5B-Instruct \
+    --datasets seedbench_gen \
+    --debug
+
+```
+
+> **📝 Notes:**
+> * **Dataset Download:** The initial run may take a few minutes to automatically download the dataset from ModelScope.
+> * **Local Models:** You can replace `Qwen/Qwen2.5-0.5B-Instruct` with your absolute local path if necessary.
+> * **Please see [Here](https://github.com/open-sciencelab/SeedBench/issues/11) for details.**
+> 
 
 ---
 

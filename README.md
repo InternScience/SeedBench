@@ -13,42 +13,6 @@
 
 ---
 
-## 🚀 How to Use SeedBench with OpenCompass
-
-To evaluate models on SeedBench, we utilize **OpenCompass**. Follow the steps below to set up the environment and run the evaluation.
-
-### 1. Installation
-
-Clone the OpenCompass repository and install the necessary dependencies (including `modelscope` for dataset downloading).
-
-```bash
-git clone https://github.com/open-compass/opencompass opencompass
-cd opencompass
-pip install -e .
-pip install modelscope
-
-```
-
-### 2. Evaluation
-
-Set the dataset source environment variable and execute the evaluation script. The example below uses `Qwen/Qwen2.5-0.5B-Instruct`.
-
-```bash
-DATASET_SOURCE=ModelScope python run.py --hf-type chat \
-    --hf-path Qwen/Qwen2.5-0.5B-Instruct \
-    --datasets seedbench_gen \
-    --debug
-
-```
-
-> **📝 Notes:**
-> * **Dataset Download:** The initial run may take a few minutes to automatically download the dataset from ModelScope.
-> * **Local Models:** You can replace `Qwen/Qwen2.5-0.5B-Instruct` with your absolute local path if necessary.
-> * **Please see [Here](https://github.com/open-sciencelab/SeedBench/issues/11) for details.**
-> 
-
----
-
 ## 🌾 Overview
 
 SeedBench assesses LLMs across three core seed breeding stages:
@@ -136,6 +100,42 @@ We evaluated 26 LLMs, including proprietary, open-source, and domain-specific mo
   - `zero-shot/`: Organized by 11 task types (see Tab 1).
 - `corpus/`: 279 high-quality text segments and low-quality questions discarded after expert validation.
 - `README.md`: This file.
+
+---
+
+## 🚀 How to Use SeedBench with OpenCompass
+
+To evaluate models on SeedBench, we utilize **OpenCompass**. Follow the steps below to set up the environment and run the evaluation.
+
+### 1. Installation
+
+Clone the OpenCompass repository and install the necessary dependencies (including `modelscope` for dataset downloading).
+
+```bash
+git clone https://github.com/open-compass/opencompass opencompass
+cd opencompass
+pip install -e .
+pip install modelscope
+
+```
+
+### 2. Evaluation
+
+Set the dataset source environment variable and execute the evaluation script. The example below uses `Qwen/Qwen2.5-0.5B-Instruct`.
+
+```bash
+DATASET_SOURCE=ModelScope python run.py --hf-type chat \
+    --hf-path Qwen/Qwen2.5-0.5B-Instruct \
+    --datasets seedbench_gen \
+    --debug
+
+```
+
+> **📝 Notes:**
+> * **Dataset Download:** The initial run may take a few minutes to automatically download the dataset from ModelScope.
+> * **Local Models:** You can replace `Qwen/Qwen2.5-0.5B-Instruct` with your absolute local path if necessary.
+> * **Please see [Here](https://github.com/open-sciencelab/SeedBench/issues/11) for details.**
+> 
 
 ## 📬 Cite
 
